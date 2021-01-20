@@ -1,0 +1,10 @@
+{
+    "name": "impack/ws",
+    "description": "PHP WebSocket",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Impack\\WebSocket\\": "src/"
+        }
+    }
+}

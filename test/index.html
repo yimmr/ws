@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket测试页</title>
+</head>
+
+<body>
+    <h3 style="text-align: center;">打开控制台可见</h3>
+    <script>
+        var ws = new WebSocket('ws://localhost:3000')
+        var i = 123456
+
+        ws.onopen = function () {
+            console.log('Open');
+
+            setInterval(() => {
+                ++i
+                ws.send(i)
+            }, 3000);
+        }
+
+        ws.onmessage = function (e) {
+            console.log(e.data);
+        }
+
+        ws.onclose = function (e) {
+            console.log('Close: ' + e.code);
+        }
+
+        ws.onerror = function (e) {
+            console.log(e);
+        }
+    </script>
+</body>
+
+</html>
