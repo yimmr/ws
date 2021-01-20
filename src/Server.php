@@ -116,6 +116,6 @@ class Server
     public function close()
     {
         $this->safeCloseClient(0);
-        $this->do('close');
+        $this->do('close', 0);
     }
 }

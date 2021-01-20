@@ -55,7 +55,7 @@ trait Base
             $this->close += 1;
             $this->close();
         } else {
-            $this->do('message', $frame['payload_data'] ?? '', $frame);
+            $this->do('message', $frame['payload_data'], $frame);
         }
     }
 
@@ -83,15 +83,6 @@ trait Base
                 break;
         }
         return $frame;
-    }
-
-    /**
-     * 关闭客户端
-     */
-    public function close()
-    {
-        $this->safeCloseClient(0);
-        $this->do('close');
     }
 
     /**

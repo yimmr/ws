@@ -121,6 +121,6 @@ class Client
     public function close()
     {
         $this->safeCloseClient(1);
-        $this->do('close');
+        $this->do('close', 0);
     }
 }
